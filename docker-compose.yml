@@ -1,0 +1,17 @@
+version: '2'
+services: 
+    microservice:
+        container_name: servicio-german
+        build: .
+        image: gloud-native-go:1.8
+        environment: 
+        - PORT=9292
+        ports: 
+        - "9292:9292"
+    nginx:
+        container_name: nginex12
+        image: "nginx:1.11.9"
+        ports: 
+        - "8081:80"
+        links: 
+        - microservice
